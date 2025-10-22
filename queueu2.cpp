@@ -1,0 +1,79 @@
+#include<iostream>
+#define MAX 100
+using namespace std;
+template <typename T>
+class Queue{
+public :
+T a[MAX];
+int front = 0 , rear = -1;
+void menu();
+void insert();
+void remove();
+void display();
+};
+template <typename T>
+void Queue<T>::menu(){
+    int ch;
+    while(true){
+        cout << "ENTER THE CHOICE" << endl;
+        cout << "1.) INSERT , 2.)REMOVE , 3.)DISPLAY" << endl;
+        cin >> ch;
+        if(ch==1){
+            insert();
+        }else if(ch==2){
+            remove();
+        }else if(ch==3){
+            display();
+        }else{
+            break;
+        }
+    }
+}
+template <typename T>
+void Queue<T>::insert(){
+    if(rear == MAX-1){
+        cout << "QUEUE IS FULL" << endl;
+    }
+    else{
+        T ele;
+        cout << "Enter the element" << endl;
+        cin >> ele;
+        a[rear++] = ele;
+    }}
+template <typename T>
+void Queue<T>::remove(){
+    if(front > rear){
+        cout << "QUEUE EMPTY" << endl;
+    }else{
+        cout << "Deleted : " << a[front++] << endl;
+    }}
+    template <typename T>
+void Queue<T>::display(){
+    if(front > rear){
+        cout << "QUEUE EMPTY" << endl;
+    }
+    else{
+        for (int i = front ; i <= rear ; i++){
+            cout << a[i] << " ";
+            cout<<endl;
+        }
+        
+    }}
+    int main() {
+        Queue<int> iq;
+        Queue<float> fq;
+        Queue<string> sq;
+        int ch;
+        cout << "ENTER YOUR CHOICE" << endl;
+        cout << "1.INTEGER QUEUE , 2.FLOAT QUEUE , 3.STRING QUEUE" <<endl;
+        cin>>ch;
+        if(ch==1){
+            iq.menu();
+
+        }else if(ch==2){
+            fq.menu();
+        }else if(ch==3){
+            sq.menu();
+        }
+        return 0;
+    }
